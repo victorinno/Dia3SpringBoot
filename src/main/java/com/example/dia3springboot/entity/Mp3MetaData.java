@@ -31,10 +31,6 @@ public class Mp3MetaData implements BaseMateData {
     private String comment;
     private String genre;
 
-    public Mp3MetaData() {
-
-    }
-
     public void setId(Long id) {
         this.id = id;
     }

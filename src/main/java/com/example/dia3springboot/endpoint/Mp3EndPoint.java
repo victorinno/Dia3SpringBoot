@@ -4,13 +4,13 @@ import com.example.dia3springboot.adpter.Mp3MetaDataAdapter;
 import com.example.dia3springboot.encrypter.Encrypters;
 import com.example.dia3springboot.encrypter.FactoryEncrypter;
 import com.example.dia3springboot.encrypter.NullEncrypter;
-import com.example.dia3springboot.encrypter.Sha256Encrypter;
 import com.example.dia3springboot.perssiter.AsyncPersisterProxy;
 import com.example.dia3springboot.perssiter.JsonPersister;
 import com.example.dia3springboot.reader.Mp3Reader;
 import com.example.dia3springboot.repository.Mp3MetaDataRepository;
 import com.example.dia3springboot.service.BaseService;
 import com.example.dia3springboot.writter.JsonWritter;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,7 +41,7 @@ public class Mp3EndPoint {
     }
 
     @PostMapping("/mp3/{encrypt}/{async}")
-    public Response gravarJson(@RequestBody PathsParameters pathsParameters, Encrypters encrypt, Boolean async) {
+    public Response gravarJson(@RequestBody PathsParameters pathsParameters, @PathVariable Encrypters encrypt, @PathVariable Boolean async) {
         BaseService service = BaseService.builder()
                 .encrypter(FactoryEncrypter.createEncrypter(encrypt))
                 .reader(reader)

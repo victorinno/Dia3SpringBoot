@@ -1,0 +1,25 @@
+{
+  "status": 200,
+  "entity": null,
+  "entityAnnotations": null,
+  "metadata": {},
+  "outMessage": null,
+  "length": -1,
+  "location": null,
+  "language": null,
+  "date": null,
+  "lastModified": null,
+  "cookies": {},
+  "headers": {},
+  "mediaType": null,
+  "allowedMethods": [],
+  "statusInfo": {
+    "family": "SUCCESSFUL",
+    "statusCode": 200,
+    "reasonPhrase": "OK"
+  },
+  "stringHeaders": {},
+  "entityTag": null,
+  "links": [],
+  "actualEntity": null
+}
