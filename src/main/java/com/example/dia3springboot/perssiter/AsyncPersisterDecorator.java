@@ -1,10 +1,10 @@
 package com.example.dia3springboot.perssiter;
 
-public class AsyncPersisterProxy implements Persister{
+public class AsyncPersisterDecorator implements Persister{
 
     private Persister persister;
 
-    public AsyncPersisterProxy(Persister persister) {
+    public AsyncPersisterDecorator(Persister persister) {
         this.persister = persister;
     }
 

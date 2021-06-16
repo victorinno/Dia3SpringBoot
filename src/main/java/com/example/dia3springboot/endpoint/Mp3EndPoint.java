@@ -4,7 +4,7 @@ import com.example.dia3springboot.adpter.Mp3MetaDataAdapter;
 import com.example.dia3springboot.encrypter.Encrypters;
 import com.example.dia3springboot.encrypter.FactoryEncrypter;
 import com.example.dia3springboot.encrypter.NullEncrypter;
-import com.example.dia3springboot.perssiter.AsyncPersisterProxy;
+import com.example.dia3springboot.perssiter.AsyncPersisterDecorator;
 import com.example.dia3springboot.perssiter.JsonPersister;
 import com.example.dia3springboot.reader.Mp3Reader;
 import com.example.dia3springboot.repository.Mp3MetaDataRepository;
@@ -45,7 +45,7 @@ public class Mp3EndPoint {
         BaseService service = BaseService.builder()
                 .encrypter(FactoryEncrypter.createEncrypter(encrypt))
                 .reader(reader)
-                .persister(async ? new AsyncPersisterProxy(new JsonPersister()) : new JsonPersister()).build();
+                .persister(async ? new AsyncPersisterDecorator(new JsonPersister()) : new JsonPersister()).build();
         adapter = new Mp3MetaDataAdapter();
         service.execute(pathsParameters.getPath(), pathsParameters.getTarget(), adapter, new JsonWritter(), mp3MetaDataRepository);
         return Response.ok().build();
